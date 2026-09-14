@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiwfi — Comece sua renda online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14231C;
+    --ink-2:#1D3327;
+    --cream:#F7F4EC;
+    --paper:#FFFFFF;
+    --lime:#C4F135;
+    --lime-dark:#8FB01F;
+    --coral:#FF6B4A;
+    --text-dark:#1B241D;
+    --muted:#5C6B5A;
+    --muted-cream:#B9C4B3;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'IBM Plex Sans',sans-serif;
+    background:var(--cream);
+    color:var(--text-dark);
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;}
+
+  /* HERO */
+  header.hero{
+    background:var(--ink);
+    color:var(--cream);
+    padding:72px 0 88px;
+    position:relative;
+    overflow:hidden;
+  }
+  .kiwi-mark{
+    width:14px;height:14px;border-radius:50%;
+    background:var(--lime);
+    display:inline-block;
+    margin-right:10px;
+    position:relative;top:-1px;
+  }
+  .brand{
+    display:flex;align-items:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:20px;
+    margin-bottom:56px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:46px;
+    color:var(--cream);
+    margin-bottom:22px;
+  }
+  .hero h1 span{color:var(--lime);}
+  .hero p.lead{
+    font-size:18px;
+    color:var(--muted-cream);
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;font-size:16px;
+    padding:16px 28px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+  }
+  .btn-primary{background:var(--lime);color:var(--ink);}
+  .btn-primary:hover{background:#d4f75f;}
+  .btn-ghost{background:transparent;color:var(--cream);border:1.5px solid rgba(247,244,236,0.35);}
+
+  .stat-card{
+    background:var(--ink-2);
+    border:1px solid rgba(196,241,53,0.25);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+  .stat-card .num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:44px;font-weight:700;color:var(--lime);
+    display:block;
+  }
+  .stat-card .label{color:var(--muted-cream);font-size:14px;margin-top:6px;}
+  .stat-card hr{border:none;border-top:1px solid rgba(247,244,236,0.15);margin:20px 0;}
+
+  /* SECTIONS */
+  section{padding:72px 0;}
+  section.alt{background:var(--paper);}
+  .kicker{
+    font-size:15px;color:var(--coral);font-weight:600;margin-bottom:10px;
+  }
+  h2.section-title{font-size:32px;margin-bottom:16px;max-width:20ch;}
+  p.section-sub{color:var(--muted);font-size:17px;max-width:56ch;margin-bottom:40px;}
+
+  /* PAINS */
+  .pain-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .pain-card{
+    background:var(--cream);
+    border-radius:var(--radius);
+    padding:26px;
+    border-left:3px solid var(--coral);
+  }
+  .pain-card h3{font-size:18px;margin-bottom:8px;}
+  .pain-card p{color:var(--muted);font-size:15px;}
+
+  /* MODULES */
+  .module-list{border-top:1px solid #E3E0D5;}
+  .module-item{
+    display:grid;grid-template-columns:56px 1fr;gap:20px;
+    padding:26px 0;border-bottom:1px solid #E3E0D5;
+  }
+  .module-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:22px;font-weight:700;color:var(--lime-dark);
+  }
+  .module-item h3{font-size:19px;margin-bottom:6px;}
+  .module-item p{color:var(--muted);font-size:15px;max-width:60ch;}
+
+  /* PRICE */
+  section.price{background:var(--ink);color:var(--cream);text-align:center;}
+  .price-card{
+    max-width:420px;margin:0 auto;
+    background:var(--ink-2);
+    border:1px solid rgba(196,241,53,0.3);
+    border-radius:20px;
+    padding:44px 36px;
+  }
+  .price-old{
+    text-decoration:line-through;color:var(--muted-cream);font-size:18px;
+  }
+  .price-new{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:56px;font-weight:700;color:var(--lime);
+    margin:6px 0 4px;
+  }
+  .price-note{color:var(--muted-cream);font-size:14px;margin-bottom:28px;}
+  .price-features{text-align:left;margin:28px 0;padding:0;list-style:none;}
+  .price-features li{
+    display:flex;gap:10px;font-size:15px;color:var(--cream);margin-bottom:12px;
+  }
+  .price-features li::before{content:"+";color:var(--lime);font-weight:700;}
+
+  /* TESTIMONIALS placeholder */
+  .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .testi-card{
+    background:var(--cream);border-radius:var(--radius);padding:26px;
+  }
+  .testi-card p.quote{font-size:16px;margin-bottom:16px;}
+  .testi-card p.who{font-size:14px;color:var(--muted);font-weight:600;}
+  .placeholder-tag{
+    display:inline-block;font-size:12px;color:var(--coral);
+    border:1px solid var(--coral);border-radius:999px;
+    padding:2px 10px;margin-bottom:40px;
+  }
+
+  /* FAQ */
+  details{
+    border-bottom:1px solid #E3E0D5;padding:20px 0;
+  }
+  summary{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:500;font-size:17px;cursor:pointer;
+    list-style:none;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:20px;color:var(--muted);}
+  details[open] summary::after{content:"–";}
+  details p{color:var(--muted);margin-top:12px;font-size:15px;max-width:60ch;}
+
+  /* FINAL CTA */
+  section.final-cta{
+    background:var(--lime);
+    text-align:center;
+  }
+  section.final-cta h2{color:var(--ink);font-size:34px;max-width:18ch;margin:0 auto 18px;}
+  section.final-cta p{color:var(--ink-2);font-size:17px;margin-bottom:32px;}
+  section.final-cta .btn-primary{background:var(--ink);color:var(--lime);}
+  section.final-cta .btn-primary:hover{background:#0d1a14;}
+
+  footer{
+    background:var(--ink);color:var(--muted-cream);
+    padding:32px 0;font-size:13px;text-align:center;
+  }
+
+  @media(max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:34px;}
+    .pain-grid{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:1fr;}
+    .module-item{grid-template-columns:40px 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand"><span class="kiwi-mark"></span>Kiwfi</div>
+    <div class="hero-grid">
+      <div>
+        <h1>Sua primeira renda online começa com <span>um plano</span>, não com sorte.</h1>
+        <p class="lead">Um passo a passo direto para quem precisa começar a ganhar dinheiro pela internet agora — sem enrolação, sem promessas vazias, sem precisar de experiência.</p>
+        <a href="https://pay.kiwify.com.br/SgiBygB" class="btn btn-primary">Quero começar agora</a>
+      </div>
+      <div class="stat-card">
+        <span class="num">R$ 12</span>
+        <span class="label">investimento único, sem mensalidade</span>
+        <hr>
+        <span class="num">100%</span>
+        <span class="label">online, no seu ritmo, direto do celular</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="kicker">Se você está aqui</p>
+    <h2 class="section-title">Provavelmente algo disso soa familiar</h2>
+    <p class="section-sub">O Kiwfi foi feito para quem precisa de resultado, não de teoria.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <h3>Sem tempo sobrando</h3>
+        <p>Você trabalha, cuida da casa, cuida de gente — e não pode gastar meses estudando antes de ver algum retorno.</p>
+      </div>
+      <div class="pain-card">
+        <h3>Sem dinheiro pra arriscar</h3>
+        <p>Cursos caros e "mentorias" de milhares de reais não são opção agora. Você precisa de algo acessível de verdade.</p>
+      </div>
+      <div class="pain-card">
+        <h3>Sem saber por onde começar</h3>
+        <p>Tem informação demais espalhada e nenhuma trilha clara. Você quer um caminho, não mais confusão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">O que tem dentro</p>
+    <h2 class="section-title">Um caminho direto, sem enrolação</h2>
+    <p class="section-sub">Substitua pelos módulos reais do seu curso — esta é uma estrutura de exemplo para você adaptar.</p>
+    <div class="module-list">
+      <div class="module-item">
+        <span class="module-num">01</span>
+        <div><h3>Escolha seu caminho</h3><p>Como decidir qual forma de ganhar dinheiro online combina com seu tempo, suas habilidades e sua situação hoje.</p></div>
+      </div>
+      <div class="module-item">
+        <span class="module-num">02</span>
+        <div><h3>Monte sua primeira oferta</h3><p>O passo a passo para transformar o que você já sabe fazer em algo que outras pessoas pagariam para ter.</p></div>
+      </div>
+      <div class="module-item">
+        <span class="module-num">03</span>
+        <div><h3>Coloque no ar</h3><p>Ferramentas simples e gratuitas para publicar, divulgar e começar a vender sem complicação técnica.</p></div>
+      </div>
+      <div class="module-item">
+        <span class="module-num">04</span>
+        <div><h3>Primeiras vendas</h3><p>Como conseguir os primeiros clientes mesmo começando do zero, sem seguidores e sem investir em anúncios.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="preco">
+  <div class="wrap">
+    <p class="kicker" style="color:var(--lime);">Oferta de lançamento</p>
+    <h2 class="section-title" style="color:var(--cream);margin:0 auto 40px;">Comece hoje por menos que um lanche</h2>
+    <div class="price-card">
+      <span class="price-old">R$ 19,99</span>
+      <div class="price-new">R$ 12,00</div>
+      <p class="price-note">pagamento único · acesso imediato</p>
+      <ul class="price-features">
+        <li>Acesso completo ao curso Kiwfi</li>
+        <li>Conteúdo direto ao ponto, sem enrolação</li>
+        <li>Acesso pelo celular ou computador</li>
+        <li>Atualizações incluídas</li>
+      </ul>
+      <a href="https://pay.kiwify.com.br/SgiBygB" class="btn btn-primary" style="width:100%;justify-content:center;">Garantir meu acesso — R$ 12</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="placeholder-tag">Espaço para depoimentos reais</span>
+    <h2 class="section-title">O que quem já começou está dizendo</h2>
+    <p class="section-sub">Troque os textos abaixo por depoimentos reais de alunos assim que tiver — depoimentos verdadeiros convertem muito mais do que exemplos genéricos.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="quote">"Exemplo: comecei sem saber nada e em poucas semanas já tinha minha primeira venda."</p>
+        <p class="who">Nome do aluno — substituir</p>
+      </div>
+      <div class="testi-card">
+        <p class="quote">"Exemplo: o conteúdo é direto, sem enrolação, exatamente o que eu precisava."</p>
+        <p class="who">Nome do aluno — substituir</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Perguntas frequentes</p>
+    <h2 class="section-title">Antes de começar</h2>
+    <div style="margin-top:24px;">
+      <details open>
+        <summary>Preciso ter experiência prévia?</summary>
+        <p>Não. O curso foi pensado para quem está começando do zero, com explicações simples e práticas.</p>
+      </details>
+      <details>
+        <summary>Em quanto tempo eu vejo resultado?</summary>
+        <p>Isso varia de pessoa para pessoa, de acordo com o tempo dedicado e a forma escolhida para gerar renda. O curso te dá o caminho — o ritmo é seu.</p>
+      </details>
+      <details>
+        <summary>Como recebo o acesso?</summary>
+        <p>Assim que o pagamento é confirmado, você recebe o acesso imediatamente por e-mail.</p>
+      </details>
+      <details>
+        <summary>Tem garantia?</summary>
+        <p>Defina aqui sua política real de garantia ou reembolso antes de publicar a página.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Dê o primeiro passo hoje</h2>
+    <p>Por R$ 12, você tem tudo o que precisa pra sair do zero.</p>
+    <a href="https://pay.kiwify.com.br/SgiBygB" class="btn btn-primary">Quero começar agora</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Kiwfi © 2026 — Todos os direitos reservados</p>
+  </div>
+</footer>
+
+</body>
+</html>
